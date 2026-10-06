@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-27T16:46:07.799Z",
+  "analysisId": "9d5081def43b55ea",
+  "source": {
+    "system": "SIVEP-Gripe / OpenDataSUS",
+    "year": 2024,
+    "records": 265288,
+    "uniqueNotifications": 265288,
+    "minNotificationDate": "2024-01-01T00:00:00.000Z",
+    "maxNotificationDate": "2024-12-31T00:00:00.000Z",
+    "antigenFieldLoaded": true
+  },
+  "published": {
+    "influenza": {
+      "allRecords": 267880,
+      "pcrPositive": 17145,
+      "cohort": 15995,
+      "deaths": 1934,
+      "fatality": 12.1,
+      "influenzaA": 14077,
+      "influenzaB": 1918
+    },
+    "pediatric": {
+      "total": 66170,
+      "week17": 2742,
+      "influenza": 2560,
+      "otherVirus": 32466,
+      "otherAgent": 741,
+      "unspecified": 24790,
+      "covid": 3342,
+      "blank": 2271,
+      "viralDetectionsKnownOutcome": 36009
+    },
+    "vaccination": {
+      "cohort": 474,
+      "deaths": 171,
+      "survivors": 303,
+      "fatality": 36
+    }
+  },
+  "reproduced": {
+    "influenza": {
+      "allRecords": 265288,
+      "pcrPositive": 17111,
+      "cohort": 16088,
+      "deaths": 1949,
+      "fatality": 12.114619592242665,
+      "influenzaA": 14122,
+      "influenzaB": 1905
+    },
+    "pediatric": {
+      "total": 66545,
+      "week17": 2758,
+      "influenza": 2572,
+      "otherVirus": 32639,
+      "otherAgent": 734,
+      "unspecified": 25016,
+      "covid": 3378,
+      "blank": 2206,
+      "viralDetectionsKnownOutcome": 36364
+    },
+    "vaccination": {
+      "cohort": 472,
+      "deaths": 170,
+      "survivors": 302,
+      "fatality": 36.016949152542374
+    }
+  },
+  "comparisons": {
+    "influenza": {
+      "allRecords": {
+        "published": 267880,
+        "reproduced": 265288,
+        "absoluteDifference": -2592,
+        "percentDifference": -0.9675974316858296,
+        "status": "reproduced"
+      },
+      "pcrPositive": {
+        "published": 17145,
+        "reproduced": 17111,
+        "absoluteDifference": -34,
+        "percentDifference": -0.19830854476523768,
+        "status": "reproduced"
+      },
+      "cohort": {
+        "published": 15995,
+        "reproduced": 16088,
+        "absoluteDifference": 93,
+        "percentDifference": 0.5814316974054392,
+        "status": "reproduced"
+      },
+      "deaths": {
+        "published": 1934,
+        "reproduced": 1949,
+        "absoluteDifference": 15,
+        "percentDifference": 0.7755946225439504,
+        "status": "reproduced"
+      },
+      "fatality": {
+        "published": 12.1,
+        "reproduced": 12.114619592242665,
+        "absoluteDifference": 0.014619592242665291,
+        "percentDifference": 0.12082307638566357,
+        "status": "reproduced"
+      },
+      "influenzaA": {
+        "published": 14077,
+        "reproduced": 14122,
+        "absoluteDifference": 45,
+        "percentDifference": 0.31967038431483985,
+        "status": "reproduced"
+      },
+      "influenzaB": {
+        "published": 1918,
+        "reproduced": 1905,
+        "absoluteDifference": -13,
+        "percentDifference": -0.6777893639207508,
+        "status": "reproduced"
+      }
+    },
+    "pediatric": {
+      "total": {
+        "published": 66170,
+        "reproduced": 66545,
+        "absoluteDifference": 375,
+        "percentDifference": 0.566722079492217,
+        "status": "reproduced"
+      },
+      "week17": {
+        "published": 2742,
+        "reproduced": 2758,
+        "absoluteDifference": 16,
+        "percentDifference": 0.5835156819839533,
+        "status": "reproduced"
+      },
+      "influenza": {
+        "published": 2560,
+        "reproduced": 2572,
+        "absoluteDifference": 12,
+        "percentDifference": 0.46875,
+        "status": "reproduced"
+      },
+      "otherVirus": {
+        "published": 32466,
+        "reproduced": 32639,
+        "absoluteDifference": 173,
+        "percentDifference": 0.5328651512351383,
+        "status": "reproduced"
+      },
+      "otherAgent": {
+        "published": 741,
+        "reproduced": 734,
+        "absoluteDifference": -7,
+        "percentDifference": -0.9446693657219973,
+        "status": "reproduced"
+      },
+      "unspecified": {
+        "published": 24790,
+        "reproduced": 25016,
+        "absoluteDifference": 226,
+        "percentDifference": 0.9116579265832998,
+        "status": "reproduced"
+      },
+      "covid": {
+        "published": 3342,
+        "reproduced": 3378,
+        "absoluteDifference": 36,
+        "percentDifference": 1.0771992818671454,
+        "status": "compatible"
+      },
+      "blank": {
+        "published": 2271,
+        "reproduced": 2206,
+        "absoluteDifference": -65,
+        "percentDifference": -2.8621752531924263,
+        "status": "compatible"
+      },
+      "viralDetectionsKnownOutcome": {
+        "published": 36009,
+        "reproduced": 36364,
+        "absoluteDifference": 355,
+        "percentDifference": 0.9858646449498737,
+        "status": "reproduced"
+      }
+    },
+    "vaccination": {
+      "cohort": {
+        "published": 474,
+        "reproduced": 472,
+        "absoluteDifference": -2,
+        "percentDifference": -0.42194092827004215,
+        "status": "reproduced"
+      },
+      "deaths": {
+        "published": 171,
+        "reproduced": 170,
+        "absoluteDifference": -1,
+        "percentDifference": -0.5847953216374269,
+        "status": "reproduced"
+      },
+      "survivors": {
+        "published": 303,
+        "reproduced": 302,
+        "absoluteDifference": -1,
+        "percentDifference": -0.33003300330033003,
+        "status": "reproduced"
+      },
+      "fatality": {
+        "published": 36,
+        "reproduced": 36.016949152542374,
+        "absoluteDifference": 0.016949152542373724,
+        "percentDifference": 0.04708097928437145,
+        "status": "reproduced"
+      }
+    }
+  },
+  "limitations": [
+    "O banco atual pode ser posterior aos snapshots usados pelos artigos.",
+    "Este artefato independente valida denominadores; a API v2 acrescenta modelos ajustados e marca IPTW como reprodução aproximada, não causal."
+  ]
+}

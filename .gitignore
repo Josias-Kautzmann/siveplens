@@ -1,0 +1,54 @@
+# Dependências
+node_modules/
+.next/
+
+# Variáveis de Ambiente
+.env
+.env.local
+.env.*.local
+
+# Banco de dados local
+data/*.db
+data/*.db-journal
+data/*.db-wal
+
+# Dados brutos pesados do IBGE (manter apenas .topo.json)
+public/geo/*.json
+!public/geo/*.topo.json
+
+# Diretório temporário de processamento
+.temp_geo/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+etl-python/.venv/
+
+# Arquivos INFLUD históricos (grandes, não versionados)
+etl-python/historico/
+etl-python/**/*.csv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+.vercel
+.env*
+
+# Exemplo sem credenciais e resultados locais de verificação
+!.env.example
+research/local/
+
+# Artefatos gerados e configuração local de ferramentas
+*.tsbuildinfo
+mcp/dist/
+.claude/
+.codex/
+*.log
+coverage/

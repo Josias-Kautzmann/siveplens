@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "siveplens-engine-validation/v1",
+  "generatedAt": "2026-10-06T00:01:19.295Z",
+  "source": {
+    "fileName": "rezende-original.xlsx",
+    "sha256": "721c8c40212b9f11c1b211f2fde89de73f896765f65ed16a44bfec8e6366bf6d",
+    "protocol": "JoaoFelipe/COVID-Study analysis.Rmd main model"
+  },
+  "reference": {
+    "implementation": "R glm(family=binomial)",
+    "url": "https://joaofelipe.github.io/COVID-Study/analysis.html",
+    "precision": "Coefficients and standard errors printed to six decimal places"
+  },
+  "engine": {
+    "implementation": "SivepLens fitLogistic",
+    "algorithm": "binomial-logit IRLS maximum likelihood",
+    "sourceFile": "src/lib/logistic-regression.ts"
+  },
+  "cohort": {
+    "n": 474,
+    "events": 171,
+    "survivors": 303,
+    "doseGroups": {
+      "3": 95,
+      "4": 112,
+      "5+": 111,
+      "1-2": 100,
+      "unvaccinated": 56
+    }
+  },
+  "result": {
+    "converged": true,
+    "iterations": 6,
+    "maxBetaDifference": 4.986298821618718e-07,
+    "maxSEDifference": 3.680679795947661e-07,
+    "tolerance": 5e-06,
+    "allCoefficientsMatched": true
+  },
+  "coefficients": [
+    {
+      "name": "(Intercept)",
+      "referenceBeta": -2.040698,
+      "sivepLensBeta": -2.0406975351857155,
+      "absoluteBetaDifference": 4.648142843954872e-07,
+      "referenceSE": 0.932136,
+      "sivepLensSE": 0.9321363302438481,
+      "absoluteSEDifference": 3.3024384815671937e-07,
+      "referenceOR": 0.12993798250611832,
+      "sivepLensOR": 0.12993804290316271
+    },
+    {
+      "name": "NU_IDADE_N",
+      "referenceBeta": 0.009214,
+      "sivepLensBeta": 0.009214397581641998,
+      "absoluteBetaDifference": 3.9758164199765744e-07,
+      "referenceSE": 0.011312,
+      "sivepLensSE": 0.011312132421614812,
+      "absoluteSEDifference": 1.3242161481241688e-07,
+      "referenceOR": 1.0092565795735877,
+      "sivepLensOR": 1.0092569808355556
+    },
+    {
+      "name": "CS_SEXOM",
+      "referenceBeta": 0.069242,
+      "sivepLensBeta": 0.06924175500438631,
+      "absoluteBetaDifference": 2.4499561368518386e-07,
+      "referenceSE": 0.219842,
+      "sivepLensSE": 0.21984185701253206,
+      "absoluteSEDifference": 1.4298746794927375e-07,
+      "referenceOR": 1.0716955280872862,
+      "sivepLensOR": 1.0716952655266148
+    },
+    {
+      "name": "education_levelElementary",
+      "referenceBeta": 1.078364,
+      "sivepLensBeta": 1.0783644264021528,
+      "absoluteBetaDifference": 4.2640215269784676e-07,
+      "referenceSE": 0.389687,
+      "sivepLensSE": 0.38968689884325713,
+      "absoluteSEDifference": 1.011567428710336e-07,
+      "referenceOR": 2.939865993883378,
+      "sivepLensOR": 2.939867247448834
+    },
+    {
+      "name": "education_levelMiddle",
+      "referenceBeta": 1.060408,
+      "sivepLensBeta": 1.0604081448095009,
+      "absoluteBetaDifference": 1.448095008349526e-07,
+      "referenceSE": 0.482131,
+      "sivepLensSE": 0.4821313173049917,
+      "absoluteSEDifference": 3.1730499172599735e-07,
+      "referenceOR": 2.8875488689026856,
+      "sivepLensOR": 2.887549287047226
+    },
+    {
+      "name": "education_levelUnknown",
+      "referenceBeta": 0.563076,
+      "sivepLensBeta": 0.5630758874349175,
+      "absoluteBetaDifference": 1.1256508247736718e-07,
+      "referenceSE": 0.340037,
+      "sivepLensSE": 0.3400369493024904,
+      "absoluteSEDifference": 5.069750957931163e-08,
+      "referenceOR": 1.756065859641122,
+      "sivepLensOR": 1.7560656619694348
+    },
+    {
+      "name": "nominal_icu_admissionYes",
+      "referenceBeta": 0.365988,
+      "sivepLensBeta": 0.36598775468396216,
+      "absoluteBetaDifference": 2.453160378168562e-07,
+      "referenceSE": 0.254819,
+      "sivepLensSE": 0.2548186319320204,
+      "absoluteSEDifference": 3.680679795947661e-07,
+      "referenceOR": 1.4419379392954246,
+      "sivepLensOR": 1.4419375855649659
+    },
+    {
+      "name": "nominal_invasive_support_venYes",
+      "referenceBeta": 2.529359,
+      "sivepLensBeta": 2.529358790512375,
+      "absoluteBetaDifference": 2.0948762502470686e-07,
+      "referenceSE": 0.359145,
+      "sivepLensSE": 0.35914499880398437,
+      "absoluteSEDifference": 1.196015619875368e-09,
+      "referenceOR": 12.545461917682246,
+      "sivepLensOR": 12.5454592895635
+    },
+    {
+      "name": "categorical_doses1-2",
+      "referenceBeta": -0.407902,
+      "sivepLensBeta": -0.40790174567529514,
+      "absoluteBetaDifference": 2.5432470485142744e-07,
+      "referenceSE": 0.373804,
+      "sivepLensSE": 0.37380389020302446,
+      "absoluteSEDifference": 1.097969755670114e-07,
+      "referenceOR": 0.6650440499458594,
+      "sivepLensOR": 0.6650442190830126
+    },
+    {
+      "name": "categorical_doses3",
+      "referenceBeta": -0.402041,
+      "sivepLensBeta": -0.402040794990004,
+      "absoluteBetaDifference": 2.050099959793883e-07,
+      "referenceSE": 0.383953,
+      "sivepLensSE": 0.3839533208906956,
+      "absoluteSEDifference": 3.2089069562646344e-07,
+      "referenceOR": 0.668953318042044,
+      "sivepLensOR": 0.6689534551841751
+    },
+    {
+      "name": "categorical_doses4",
+      "referenceBeta": -0.60706,
+      "sivepLensBeta": -0.6070601494822911,
+      "absoluteBetaDifference": 1.494822911007887e-07,
+      "referenceSE": 0.381589,
+      "sivepLensSE": 0.38158896137590215,
+      "absoluteSEDifference": 3.86240978644814e-08,
+      "referenceOR": 0.5449506711863459,
+      "sivepLensOR": 0.5449505897258772
+    },
+    {
+      "name": "categorical_doses5+",
+      "referenceBeta": -0.586755,
+      "sivepLensBeta": -0.5867545013701179,
+      "absoluteBetaDifference": 4.986298821618718e-07,
+      "referenceSE": 0.378867,
+      "sivepLensSE": 0.3788672459328344,
+      "absoluteSEDifference": 2.459328343751288e-07,
+      "referenceOR": 0.5561289984730039,
+      "sivepLensOR": 0.55612927577561
+    }
+  ]
+}

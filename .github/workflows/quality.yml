@@ -1,0 +1,29 @@
+name: Qualidade e testes
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            mcp/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix mcp
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build --prefix mcp
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: etl-python/requirements.txt
+      - run: pip install -r etl-python/requirements.txt
+      - run: python -m unittest discover -s etl-python/tests -v

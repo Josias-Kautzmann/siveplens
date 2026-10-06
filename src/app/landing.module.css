@@ -1,0 +1,551 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d4ede6 0%, #c2e8df 30%, #b8e4da 60%, #cceee7 100%);
+}
+
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.neuralCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(180, 230, 220, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* ── Navbar ── */
+.nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #1a3a30;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 28px;
+  height: 28px;
+  background: #1a3a30;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoIcon svg {
+  width: 16px;
+  height: 16px;
+  fill: #c2e8df;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-width: 0;
+  margin-left: 28px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+
+.navLinks a {
+  display: block;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1a3a30;
+  text-decoration: none;
+  border: 1px solid rgba(26, 58, 48, 0.25);
+  border-radius: 20px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.navLinks a:hover {
+  background: rgba(26, 58, 48, 0.08);
+  border-color: rgba(26, 58, 48, 0.4);
+}
+
+.navEramia {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 9px 16px;
+  border: 1px solid rgba(26, 58, 48, 0.82);
+  border-radius: 999px;
+  background: #1a3a30;
+  box-shadow: 0 8px 24px rgba(26, 58, 48, 0.16);
+  color: #f2fbf7;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.navEramia span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bfe8dc;
+  box-shadow: 0 0 0 3px rgba(191, 232, 220, 0.13);
+}
+
+.navEramia:hover {
+  transform: translateY(-1px);
+  background: #245344;
+  box-shadow: 0 10px 28px rgba(26, 58, 48, 0.22);
+}
+
+/* ── Hero body: flex column que gerencia heroContent + heroStats ── */
+/* Isso elimina o conflito de dois `position: absolute` independentes. */
+.heroBody {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  padding-top: 72px; /* espaço para a navbar */
+}
+
+/* ── Hero content ── */
+.heroContent {
+  flex: 1;
+  min-height: 0; /* permite shrink correto no flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 48px;
+  max-width: 680px;
+}
+
+.heroEyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2a6b55;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroEyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: #2a6b55;
+  flex-shrink: 0;
+}
+
+.heroTitle {
+  font-size: clamp(42px, 5.5vw, 72px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #0f2820;
+  margin-bottom: 28px;
+}
+
+.heroTitle strong {
+  font-weight: 500;
+}
+
+.heroDesc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2a4a3e;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+.heroCta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  padding: 12px 28px;
+  background: #1a3a30;
+  color: #c2e8df;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btnPrimary:hover {
+  background: #0f2820;
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  padding: 12px 28px;
+  background: transparent;
+  color: #1a3a30;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(26, 58, 48, 0.35);
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+
+.btnSecondary:hover {
+  background: rgba(26, 58, 48, 0.06);
+  border-color: rgba(26, 58, 48, 0.5);
+}
+
+.btnClaude {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #1a3a30;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(26, 58, 48, 0.4);
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+}
+
+.btnClaude:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(26, 58, 48, 0.6);
+  transform: translateY(-1px);
+}
+
+.btnClaudeIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  fill: #1a3a30;
+  stroke: #1a3a30;
+}
+
+/* ── Stat badges ── */
+.heroStats {
+  flex-shrink: 0;
+  display: flex;
+  gap: 16px;
+  padding: 16px 48px 48px;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 14px 20px;
+}
+
+.statLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2a6b55;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 300;
+  color: #0f2820;
+  letter-spacing: -0.02em;
+}
+
+/* ── Responsividade ───────────────────────────────────────────────────────── */
+
+/* Laptop HD (≤ 1366px, ex: 1366x768) — reduz font e margens para não overflow */
+@media (max-width: 1366px) {
+  .heroTitle {
+    font-size: clamp(36px, 4.2vw, 54px);
+    margin-bottom: 16px;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 12px;
+  }
+
+  .heroDesc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .heroStats {
+    padding: 8px 48px 32px;
+  }
+}
+
+/* Tablet / laptop pequeno (< 1024px) */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 20px 32px;
+  }
+
+  .navLinks {
+    gap: 2px;
+    overflow-x: auto;
+    flex-shrink: 1;
+    min-width: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .navRight {
+    gap: 10px;
+    margin-left: 18px;
+  }
+
+  .navLinks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .heroContent {
+    padding: 0 32px;
+  }
+
+  .heroStats {
+    padding: 12px 32px 32px;
+  }
+}
+
+/* Mobile grande / tablet pequeno (< 768px) */
+@media (max-width: 768px) {
+  .nav {
+    padding: 16px 20px;
+  }
+
+  .navLinks a {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .navEramia {
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+
+  .heroBody {
+    padding-top: 60px;
+  }
+
+  .heroContent {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .heroDesc {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .heroStats {
+    padding: 12px 20px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .statCard {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 16px;
+  }
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 640px) {
+  .navLinks {
+    display: none;
+  }
+
+  .navRight {
+    margin-left: auto;
+  }
+
+  .heroBody {
+    padding-top: 56px;
+  }
+
+  .heroContent {
+    padding: 16px 20px 0;
+    max-width: 100%;
+    justify-content: flex-start;
+  }
+
+  .heroTitle {
+    font-size: clamp(34px, 10vw, 52px);
+    margin-bottom: 20px;
+  }
+
+  .heroDesc {
+    margin-bottom: 28px;
+  }
+
+  .heroCta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .btnPrimary,
+  .btnSecondary,
+  .btnClaude {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .heroStats {
+    display: none;
+  }
+}
+
+/* ── Short Viewports (evita sobreposição dos botões com os cards de estatísticas) ── */
+@media (max-height: 800px) {
+  .nav {
+    padding: 16px 48px;
+  }
+
+  .heroBody {
+    padding-top: 64px;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 12px;
+  }
+
+  .heroTitle {
+    font-size: clamp(32px, 3.8vw, 46px);
+    margin-bottom: 12px;
+  }
+
+  .heroDesc {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .btnPrimary,
+  .btnSecondary,
+  .btnClaude {
+    padding: 10px 22px;
+    font-size: 12px;
+  }
+
+  .heroStats {
+    padding: 8px 48px 24px;
+  }
+
+  .statCard {
+    padding: 10px 16px;
+  }
+
+  .statValue {
+    font-size: 18px;
+  }
+}
+
+@media (max-height: 680px) {
+  .nav {
+    padding: 12px 48px;
+  }
+
+  .heroBody {
+    padding-top: 56px;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 8px;
+  }
+
+  .heroTitle {
+    font-size: clamp(28px, 3.2vw, 36px);
+    margin-bottom: 8px;
+  }
+
+  .heroDesc {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .btnPrimary,
+  .btnSecondary,
+  .btnClaude {
+    padding: 8px 18px;
+    font-size: 11.5px;
+  }
+
+  .heroStats {
+    padding: 4px 48px 16px;
+    gap: 12px;
+  }
+
+  .statCard {
+    padding: 8px 12px;
+  }
+
+  .statValue {
+    font-size: 16px;
+  }
+}

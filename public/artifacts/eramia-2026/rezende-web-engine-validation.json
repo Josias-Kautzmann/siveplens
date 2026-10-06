@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "siveplens-engine-validation/v1",
+  "generatedAt": "2026-09-02T03:11:01.439Z",
+  "source": {
+    "fileName": "SRAG_2024_REZENDE.xlsx",
+    "sha256": "721c8c40212b9f11c1b211f2fde89de73f896765f65ed16a44bfec8e6366bf6d",
+    "protocol": "JoaoFelipe/COVID-Study analysis.Rmd main model"
+  },
+  "reference": {
+    "implementation": "R glm(family=binomial)",
+    "url": "https://joaofelipe.github.io/COVID-Study/analysis.html",
+    "precision": "Coefficients and standard errors printed to six decimal places"
+  },
+  "engine": {
+    "implementation": "SivepLens fitLogistic",
+    "algorithm": "binomial-logit IRLS maximum likelihood",
+    "sourceFile": "src/lib/logistic-regression.ts"
+  },
+  "cohort": {
+    "n": 474,
+    "events": 171,
+    "survivors": 303,
+    "doseGroups": {
+      "unvaccinated": 56,
+      "1-2": 100,
+      "3": 95,
+      "4": 112,
+      "5+": 111
+    }
+  },
+  "result": {
+    "converged": true,
+    "iterations": 6,
+    "maxBetaDifference": 4.986298821618718e-7,
+    "maxStandardErrorDifference": 3.680679795947661e-7,
+    "tolerance": 0.000005,
+    "coefficientsMatched": 12,
+    "standardErrorsMatched": 12,
+    "allMatched": true
+  },
+  "doseOddsRatios": [
+    { "group": "1-2", "published": 0.67, "reference": 0.6650440499458594, "sivepLens": 0.6650442190830126 },
+    { "group": "3", "published": 0.67, "reference": 0.668953318042044, "sivepLens": 0.6689534551841751 },
+    { "group": "4", "published": 0.54, "reference": 0.5449506711863459, "sivepLens": 0.5449505897258772 },
+    { "group": "5+", "published": 0.56, "reference": 0.5561289984730039, "sivepLens": 0.55612927577561 }
+  ],
+  "coefficients": [
+    { "name": "(Intercept)", "referenceBeta": -2.040698, "sivepLensBeta": -2.0406975351857155, "referenceSE": 0.932136, "sivepLensSE": 0.9321363302438481 },
+    { "name": "NU_IDADE_N", "referenceBeta": 0.009214, "sivepLensBeta": 0.009214397581641998, "referenceSE": 0.011312, "sivepLensSE": 0.011312132421614812 },
+    { "name": "CS_SEXOM", "referenceBeta": 0.069242, "sivepLensBeta": 0.06924175500438631, "referenceSE": 0.219842, "sivepLensSE": 0.21984185701253206 },
+    { "name": "education_levelElementary", "referenceBeta": 1.078364, "sivepLensBeta": 1.0783644264021528, "referenceSE": 0.389687, "sivepLensSE": 0.38968689884325713 },
+    { "name": "education_levelMiddle", "referenceBeta": 1.060408, "sivepLensBeta": 1.0604081448095009, "referenceSE": 0.482131, "sivepLensSE": 0.4821313173049917 },
+    { "name": "education_levelUnknown", "referenceBeta": 0.563076, "sivepLensBeta": 0.5630758874349175, "referenceSE": 0.340037, "sivepLensSE": 0.3400369493024904 },
+    { "name": "nominal_icu_admissionYes", "referenceBeta": 0.365988, "sivepLensBeta": 0.36598775468396216, "referenceSE": 0.254819, "sivepLensSE": 0.2548186319320204 },
+    { "name": "nominal_invasive_support_venYes", "referenceBeta": 2.529359, "sivepLensBeta": 2.529358790512375, "referenceSE": 0.359145, "sivepLensSE": 0.35914499880398437 },
+    { "name": "categorical_doses1-2", "referenceBeta": -0.407902, "sivepLensBeta": -0.40790174567529514, "referenceSE": 0.373804, "sivepLensSE": 0.37380389020302446 },
+    { "name": "categorical_doses3", "referenceBeta": -0.402041, "sivepLensBeta": -0.402040794990004, "referenceSE": 0.383953, "sivepLensSE": 0.3839533208906956 },
+    { "name": "categorical_doses4", "referenceBeta": -0.60706, "sivepLensBeta": -0.6070601494822911, "referenceSE": 0.381589, "sivepLensSE": 0.38158896137590215 },
+    { "name": "categorical_doses5+", "referenceBeta": -0.586755, "sivepLensBeta": -0.5867545013701179, "referenceSE": 0.378867, "sivepLensSE": 0.3788672459328344 }
+  ],
+  "interpretation": "The same fitLogistic core used by SivepLens matched all 12 coefficients and standard errors from the authors' published R glm output within the declared tolerance. This controlled test is separate from the model recalculated on the current production database."
+}

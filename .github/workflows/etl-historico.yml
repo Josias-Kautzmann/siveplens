@@ -1,0 +1,53 @@
+name: ETL SRAG Histórico (2019–2022)
+
+# Execução MANUAL apenas — dados históricos são imutáveis, não precisam de schedule.
+# Dispare pelo GitHub → Actions → "ETL SRAG Histórico" → Run workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      anos:
+        description: 'Anos a importar (separados por espaço). Ex: 2019 2020 2021 2022'
+        required: false
+        default: '2019 2020 2021 2022'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: siveplens-etl
+  cancel-in-progress: false
+
+jobs:
+  historico:
+    if: vars.ENABLE_ETL == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # cada ano leva ~15-25 min; 4 anos = ~90 min
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: etl-python/requirements.txt
+
+      - name: Instalar dependências
+        run: pip install -r etl-python/requirements.txt
+
+      - name: Importar dados históricos
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          ETL_YEARS: ${{ inputs.anos }}
+        run: |
+          if [[ ! "$ETL_YEARS" =~ ^[0-9\ ]+$ ]]; then
+            echo "Use apenas anos separados por espaços." >&2
+            exit 1
+          fi
+          read -r -a years <<< "$ETL_YEARS"
+          python etl-python/load_historico.py "${years[@]}"
+
+      - name: Resumo
+        if: always()
+        run: echo "Verifique os logs acima para o relatório de qualidade por ano."

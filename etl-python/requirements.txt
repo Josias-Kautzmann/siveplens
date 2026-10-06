@@ -1,0 +1,24 @@
+# ETL SivepLens
+#
+# Instalar:
+#   python -m venv .venv
+#   .venv\Scripts\activate        (Windows)
+#   source .venv/bin/activate     (Linux/Mac)
+#   pip install -r requirements.txt
+
+# Dados
+pandas>=2.0
+numpy>=1.24
+
+# Banco de dados — conexão direta PostgreSQL
+psycopg2-binary>=2.9
+
+# Variáveis de ambiente
+python-dotenv>=1.0
+
+# Modelos estatísticos (motor de alertas)
+scipy>=1.11
+requests>=2.31
+
+# Leitura do XLSX público usado na validação controlada
+openpyxl>=3.1
